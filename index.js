@@ -11,6 +11,9 @@ app.use(express.urlencoded());
 app.use(cors());
 app.use(bodyParser.json());
 
+const hostname = '0.0.0.0'
+const port = 9002;
+
 
 mongoose.connect('mongodb+srv://movieapp:movie123@karthik.yyvbipq.mongodb.net/?retryWrites=true&w=majority',{
     useNewUrlParser: true,
@@ -116,8 +119,8 @@ app.post('/register', (req, res)=>{
         }
     })
 })
-app.listen(9002, ()=>{
-    console.log("Api started at port 9002");
+app.listen(port, hostname,  ()=>{
+    console.log(`http://${hostname}:${port}`);
 })
 
 
